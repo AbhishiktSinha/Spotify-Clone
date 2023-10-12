@@ -21,9 +21,16 @@ body{
     padding: 0.5%;
     padding-bottom: 0;
     column-gap: .6%;    
+
+    /* text-wrap: nowrap; */
 }
+
 button{
     cursor: pointer;
+}
+.universal-small-button{
+    min-width: 33.89px !important;
+    min-height: 33.89px !important;
 }
 a{
     text-decoration: none;
@@ -51,17 +58,22 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    text-wrap: nowrap;
 }
 .navbar-left{
-    width: 9%;
+    width: 12%;
     height: 100%;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
+.nav-back-button, .nav-forward-button{
+    /* margin-inline: 5%; */
+}
 .navbar-right{
-    width: 45%;
+    min-width: 50%;
     height: 100%;
     display: flex;
     justify-content: space-around;
@@ -71,8 +83,10 @@ nav{
 }
 
 .nav-back-button, .nav-forward-button, .notifications, .profile-icon{
-    width: 2.5vw;
-    height: 2.5vw;
+    /* width: 2.5vw;
+    height: 2.5vw; */
+    width: 33.89px;
+    height: 33.89px;
 
     background-color: rgba(0, 0, 0, 0.926);
     color:  rgba(255, 255, 255, 0.538);
@@ -103,26 +117,25 @@ nav{
     color: white;
 
 }
+.premium-button, .install-app-button{
+    border: none;
+    min-width: 126px;
+    min-height: 50%;
+    text-wrap: nowrap;
+    
+    border-radius: 2em;
+    font-weight: 800;
+}
 .premium-button{
     color: black;
-    font-weight: 600;
     background-color: white;
-    border: none;
-    min-width: 30%;
-    min-height: 50%;
-
-    border-radius: 2em;
 }
 .premium-button:hover, .install-app-button:hover{
     transform: scale(1.1, 1.05);
 }
 .install-app-button{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    width: 30%;
-    height: 50%;
-    border: none;
-    border-radius: 2em;
 
     display: flex;
     align-items: center;
@@ -161,6 +174,7 @@ main:hover::-webkit-scrollbar-thumb{
 }
 .main-container{
     width: 100%;
+    margin-top: 1.5%;
 }
 .good-morning-container{
     width: 100%;
@@ -211,8 +225,8 @@ main:hover::-webkit-scrollbar-thumb{
 
     background: linear-gradient(to bottom right, rgb(25, 0, 254), white);
 }
-.playlist-title{
-    background-color: rgba(255, 255, 255, 0.134);    
+.playlist-title-container{
+    background-color: rgba(255, 255, 255, 0.081);    
 
     width: 70%;
     display: flex;
@@ -222,9 +236,26 @@ main:hover::-webkit-scrollbar-thumb{
     padding-inline: 4%;
 
     transition: background-color 0.16s linear;
+
+    box-shadow: 20px 0 10px -10px rgba(0, 0, 0, 0.22) inset;
 }
-.playlist-title:hover{
-    background-color: rgba(255, 255, 255, 0.25);
+.playlist-title{
+    width: 80%;
+
+    font-weight: 600;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    
+}
+.playlist-card:hover{
+    cursor: pointer;
+    .playlist-title-container{
+        background-color: rgba(255, 255, 255, 0.25);
+    }
 }
 
 
@@ -267,11 +298,14 @@ main:hover::-webkit-scrollbar-thumb{
 
     border-radius: 8px;
     border: none;
+    
+    transition: background-color 0.16s linear;
+}
+.show-card-inner-container{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    transition: background-color 0.16s linear;
+    justify-content: flex-start;
 }
 .show-card:hover{
     background-color: rgba(255, 255, 255, 0.2);
@@ -281,6 +315,8 @@ main:hover::-webkit-scrollbar-thumb{
     border-radius: 8px;
     border: none;
     overflow: hidden;
+
+    margin-bottom: 15px;
 }
 .cover-art-container > img{
     display: inline-block;
@@ -422,6 +458,10 @@ main:hover::-webkit-scrollbar-thumb{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    column-gap: 4%;
+
+    text-wrap: nowrap;
     
 }
 .your-library-container:hover{
@@ -451,7 +491,9 @@ main:hover::-webkit-scrollbar-thumb{
 }
 .row-2-internal-container{
     height: 100%;
-    width: 60%;
+    max-width: 60%;
+    min-width: fit-content;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -465,6 +507,15 @@ main:hover::-webkit-scrollbar-thumb{
     border-radius: 1.2em;
 
     font-weight: 600;
+
+    text-wrap: none;
+    white-space: nowrap;
+}
+.r2b1{
+    min-width: 75px;
+}
+.r2b2{
+    min-width: 140px;
 }
 .row-2-button:hover{
     background-color: rgba(75, 75, 75, 0.30);
@@ -522,7 +573,13 @@ main:hover::-webkit-scrollbar-thumb{
     background-color: rgba(164, 164, 164, 0.01);
     opacity: 65%;
 
-    font-size: 16px; 
+    font-size: 14px;
+
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 5px;
+    align-items: center;
+
 }
 .search-button-left:hover , .recents-button-right:hover{
     opacity: 95%;
@@ -545,6 +602,8 @@ main:hover::-webkit-scrollbar-thumb{
 
     border-radius: 0.6em;
     background-color: rgba(124, 124, 124, 0);
+
+    transition: background-color 0.10s linear;
 }
 .list-card:hover{
     background-color: rgba(124, 124, 124, 0.2);
@@ -566,6 +625,9 @@ main:hover::-webkit-scrollbar-thumb{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+}
+.list-card-music-credits{
+    font-size: smaller;
 }
 
 
@@ -685,6 +747,10 @@ footer{
 .console-button{
     height: 2.5vw;
     width: 2.5vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
     column-gap: 0.5%;
     
@@ -771,7 +837,7 @@ footer{
 }
 
 .volume-controls-container{
-    width: 10vw;
+    width: max-content;
 
     box-sizing: border-box;
     display: flex;
